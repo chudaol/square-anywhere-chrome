@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+
+    "name": "Anywhere Square",
+    "description": "This extension draws a square which can be redimensioned and dragged to mark whatever part of the page.",
+    "version": "1.1",
+    "permissions": ["contextMenus"],
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+    "icons": {
+        "16": "icon2.png",
+        "48": "icon2.png",
+        "128": "icon2.png"
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["jquery-2.0.3.js", "jquery-ui.min.js", "script.js"],
+        "css": ["jquery-ui.min.css"]
+    }]
+}
