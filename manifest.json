@@ -4,10 +4,10 @@
     "name": "Anywhere Square",
     "description": "This extension draws a square which can be redimensioned and dragged to mark whatever part of the page.",
     "version": "1.1",
-    "permissions": ["contextMenus"],
+    "permissions": ["contextMenus", "tabs", "<all_urls>"],
     "background": {
         "persistent": false,
-        "scripts": ["background.js"]
+        "scripts": ["jquery-2.0.3.js", "background.js"]
     },
     "icons": {
         "16": "icon2.png",
