@@ -18,5 +18,10 @@
         "matches": ["*://*/*"],
         "js": ["jquery-2.0.3.js", "jquery-ui.min.js", "script.js"],
         "css": ["jquery-ui.min.css"]
-    }]
+    }],
+    "browser_action": {
+        "default_title": "Highlight!",
+        "default_popup": "popup.html",
+        "default_icon": "icon2.png"
+    }
 }
