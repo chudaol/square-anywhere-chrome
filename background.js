@@ -1,6 +1,30 @@
 function onClickHandler(info) {
+    var id;
+
+    id = info.menuItemId;
+
+    switch(id) {
+        case 'square':
+            sendMessage('drawSquare', info);
+            break;
+        case 'capture':
+            captureScreen();
+            break;
+    }
+}
+
+function sendMessage(msgId, info) {
+    var objToSend = {msgId: msgId};
+
+    $.extend(true, objToSend, info);
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, info);
+        chrome.tabs.sendMessage(tabs[0].id, objToSend);
+    });
+}
+
+function captureScreen() {
+    chrome.tabs.captureVisibleTab({format: 'png'}, function (imgData) {
+        sendMessage('saveImg', {imgData: imgData})
     });
 }
 
@@ -15,10 +39,10 @@ chrome.runtime.onInstalled.addListener(function() {
         "id": "square"
     });
 
-//    chrome.contextMenus.create({
-//        "contexts": ["all"],
-//        "title": "Arrow",
-//        "id": "arrow"
-//    });
+    chrome.contextMenus.create({
+        "contexts": ["all"],
+        "title": "Capture!",
+        "id": "capture"
+    });
 
 });
