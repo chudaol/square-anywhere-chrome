@@ -1,0 +1,5 @@
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/vendor/jquery/images/ui-icons_222222_256x240.png');
+}
