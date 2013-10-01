@@ -3,7 +3,7 @@
 
     "name": "Highlight and Capture",
     "description": "This extension draws a square which can be resized and dragged to highlight whatever part of the page before capturing it.",
-    "version": "1.3",
+    "version": "1.4",
     "permissions": ["contextMenus", "tabs", "<all_urls>"],
     "web_accessible_resources": [
         "/vendor/jquery/images/ui-icons_222222_256x240.png"
