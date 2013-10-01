@@ -20,6 +20,6 @@
     "content_scripts": [{
         "matches": ["*://*/*"],
         "js": ["vendor/jquery/jquery-2.0.3.js", "vendor/jquery/jquery-ui.min.js", "script.js"],
-        "css": ["style.css"]
+        "css": ["vendor/jquery/jquery-ui.min.css", "style.css"]
     }]
 }
