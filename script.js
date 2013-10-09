@@ -22,13 +22,13 @@ $(document).ready(function () {
         var msgId;
 
         msgId = request.msgId;
-
+        alert(msgId);
         switch (msgId) {
             case 'drawSquare':
                 drawSquare();
                 break;
             case 'saveImg':
-                saveImage(request.imgData);
+                saveImage(request.data);
                 break;
         }
     });

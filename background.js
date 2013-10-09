@@ -1,3 +1,5 @@
+var tabId;
+
 // Event handlers
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
@@ -14,6 +16,10 @@ chrome.runtime.onInstalled.addListener(function() {
         "contexts": ["all"],
         "title": "Capture!",
         "id": "capture"
+    });
+
+    chrome.tabs.getSelected(null, function (tab) {
+        tabId = tab.id;
     });
 });
 
@@ -44,9 +50,11 @@ function onClickHandler(info) {
  * @param {Object} info
  */
 function sendMessage(msgId, info) {
-    var objToSend = {msgId: msgId};
+    var objToSend = {
+        msgId: msgId,
+        data: info
+    };
 
-    $.extend(true, objToSend, info);
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, objToSend);
     });
@@ -57,6 +65,6 @@ function sendMessage(msgId, info) {
  */
 function captureScreen() {
     chrome.tabs.captureVisibleTab({format: 'png'}, function (imgData) {
-        sendMessage('saveImg', {imgData: imgData})
+        sendMessage('saveImg', imgData)
     });
 }
